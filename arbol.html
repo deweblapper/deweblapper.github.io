@@ -581,7 +581,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
     const isRequired = container.dataset.required === "true";
     const tag = container.querySelector('.input-tag');
     if (tag) {
-      tag.textContent = isRequired ? '(Requerido)' : '(Opcional)';
+      tag.textContent = isRequired ? '(Requerido) ❗' : '(Opcional)';
     }
   });
 }
