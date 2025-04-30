@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Árbol con Formulario</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <style>
+    .lk-tree-menu {
+      padding: 10px;
+      list-style: none;
+      position: relative;
+    }
+
+    .lk-tree-menu li {
+      position: relative;
+      padding-left: 1.5em;
+      margin-left: 1em;
+    }
+
+    .lk-tree-menu li {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 8px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+
+    .lk-tree-menu li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+      width: 1em;
+      height: 1.5em;
+    }
+
+    .lk-tree-menu li:last-child::before {
+      border-left: 1px solid #aaa;
+      border-bottom: none;
+      height: 0.75em;
+    }
+
+    .lk-tree-menu input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    .lk-tree-menu input[type="checkbox"] ~ ul {
+      display: none;
+    }
+
+    .lk-tree-menu input[type="checkbox"]:checked ~ ul {
+      display: block;
+    }
+
+    .tree_label {
+      cursor: pointer;
+      display: block;
+      padding: 5px;
+      background: #f9f9f9;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      position: relative;
+    }
+
+    .tree_label:hover {
+      background: #e2f0d9;
+    }
+
+    /* Inputs y selects */
+    .formulario input,
+    .formulario select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+
+    /* Elimina márgenes para ramas internas */
+    .lk-tree-menu ul {
+      list-style: none;
+      margin-left: 1em;
+      padding-left: 1em;
+      border-left: 1px solid #aaa;
+    }
+
+    /* Ocultar nodos ropa por defecto */
+    #ropa-caballero, #ropa-dama {
+      display: none;
+    }
+
+ 
+
+
+
+   
+
+
+
+
+
+
+
+
+    .form-group-inline {
+  margin-bottom: 15px;
+}
+
+.input-with-help {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-with-help input,
+.input-with-help select {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.help-icon {
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  border:solid 1px;
+}
+
+.tooltip-text {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+  padding: 6px 10px;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 4px;
+  z-index: 100;
+  max-width: 250px;
+}
+
+.input-with-help.active .tooltip-text {
+  display: block;
+}
+
+
+.tree_label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tree_label .toggle-icon::before {
+  content: "▷";
+  transition: transform 0.2s ease;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+/* Cuando está expandido */
+input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
+  content: "▽";
+}
+
+
+
+/*estilo para place holder alterno*/
+
+.input-with-tag {
+  position: relative;
+}
+
+.input-with-tag input {
+  width: 100%;
+  padding-right: 80px;
+}
+
+.input-tag {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75em;
+  color: #999;
+  pointer-events: none;
+}
+
+
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header text-center">
+      <h2>Formulario en Árbol</h2>
+    </div>
+    <div class="card-body">
+      
+
+      <ul class="lk-tree-menu">
+        <li style="background-color: #3A8DFF;">
+          <input type="checkbox" id="nodo-1" checked>
+          <label class="tree_label" for="nodo-1"><b>Reporte </b><span class="toggle-icon"></span></label>
+          <ul style="background-color: #3A8DFF;" >
+            <li class="formulario" style="background-color: #3A8DFF;">
+             
+              <div class="form-group-inline">
+                <label>Versión</label>
+                <div class="input-with-help input-with-tag" data-required="false">
+                  <input type="text" placeholder="Version" value="1.0" readonly onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Versión de xsd.</div>
+                </div>
+              </div>
+      
+              <div class="form-group-inline">
+                <label>RfcContribuyente</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="RfcContribuyente" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Requerido para todos los contribuyentes, para expresar su RFC. Puede ser de persona moral o física.</div>
+                </div>
+              </div>
+      
+              <div class="form-group-inline">
+                <label>RfcRepresentanteLegal</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="RfcRepresentanteLegal M" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Condicional para todos los contribuyentes que sean persona moral, para expresar el RFC de su representante legal. El RFC deberá contener 13 caracteres al tratarse de una persona física.</div>
+                </div>
+              </div>
+
+          
+      
+         
+
+
+
+
+              <!---AQUI COMIENZA EL NODO DE CARACTERES-->
+              <div class="form-group-inline">
+              <!--<li style="background-color: #71B2FF;" >-->
+                
+                <input type="checkbox" id="direccion-check" >
+                <label class="tree_label" for="direccion-check" style="width: 97.5%;"><b>Caracter</b><span class="toggle-icon"></span></label>
+
+  
+                  
+            
+            
+
+                <ul class="formulario">
+                  <li style="background-color: #71B2FF;">
+                    <div class="form-group-inline">
+                      <label>TipoCaracter</label>
+                      <div class="input-with-help input-with-tag" data-required="true">
+                        <input type="text" placeholder="TipoCaracter" onclick="event.stopPropagation()">
+                        <span class="input-tag"></span>
+                        <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                        <div class="tooltip-text">Requerido para expresar el carácter con el que actúa para efectos regulatorios.</div>
+                      </div>
+                    </div>
+              
+                    <div class="form-group-inline">
+                      <label>ModalidadPermiso</label>
+                      <div class="input-with-help input-with-tag" data-required="true">
+                        <input type="text" placeholder="ModalidadPermiso" onclick="event.stopPropagation()">
+                        <span class="input-tag"></span>
+                        <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                        <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “permisionario”, para expresar el tipo de permiso conforme a lo señalado en la sección 4. “VALIDACIONES ADICIONALES A REALIZAR”, subsección 4.1 “Tipo definido para los tipos de permisos”.</div>
+                      </div>
+                    </div>
+              
+                    <div class="form-group-inline">
+                      <label>NumPermiso</label>
+                      <div class="input-with-help input-with-tag" data-required="true">
+                        <input type="text" placeholder="NumPermiso" onclick="event.stopPropagation()">
+                        <span class="input-tag"></span>
+                        <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                        <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “permisionario” para expresar el número de permiso otorgado por la Comisión Reguladora de Energía o la Secretaría de Energía, siguiendo el patrón asociado al permiso, conforme a la sección 4. “VALIDACIONES ADICIONALES A REALIZAR”, subsección 4.1 “Tipo definido para los tipos de permisos”.</div>
+                      </div>
+                    </div>
+              
+                    <div class="form-group-inline">
+                      <label>NumContratoOAsignacion</label>
+                      <div class="input-with-help input-with-tag" data-required="true">
+                        <input type="text" placeholder="NumContratoOAsignacion" onclick="event.stopPropagation()">
+                        <span class="input-tag"></span>
+                        <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                        <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “contratista” o “asignatario” para expresar el número de asignación otorgada por la Secretaría de Energía o el número de contrato celebrado con la Comisión Nacional de Hidrocarburos, según corresponda.</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              <!--</li>-->
+              </div>
+
+
+              <div class="form-group-inline">
+                <label>ClaveInstalacion</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="ClaveInstalacion M" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Requerido para expresar la clave de identificación de la instalación o proceso donde deban instalarse sistemas de medición, conforme a la sección 5 “Claves”, subsección 5.1.</div>
+                </div>
+              </div>
+
+              <div class="form-group-inline">
+                <label>DescripcionInstalacion</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="DescripcionInstalacion M" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Requerido para describir la instalación o proceso donde deban instalarse sistemas de medición.</div>
+                </div>
+              </div>
+
+              <div class="form-group-inline">
+                <label>NumeroPozos</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="NumeroPozos M" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Requerido para expresar el número de pozos que cuentan con sistemas de medición a boca de pozo. En caso de no tener debe manifestar 0.</div>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="form-group-inline">
+                <label>Sexo</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <select id="select-sexo" onclick="event.stopPropagation()">
+                    <option value="">Selecciona sexo</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Selecciona tu sexo de nacimiento o el que te identifique.</div>
+                </div>
+              </div>
+
+
+
+              <ul>
+
+                <li id="ropa-caballero" style="background-color: #A6D1FF;">
+                  <input type="checkbox" id="smCB-1" checked>
+                  <label class="tree_label" for="smCB-1"><b>Ropa Caballero</b><span class="toggle-icon"></span></label>
+                  <ul style="background-color: #A6D1FF;">
+                    <li style="background-color: #D1E9FF;">
+                      <input type="checkbox" id="pantalon-caballero">
+                      <label class="tree_label" for="pantalon-caballero">Pantalón Caballero<span class="toggle-icon"></span></label>
+                      <ul class="formulario">
+                        <li style="background-color: #D1E9FF;">
+
+                          <div class="form-group-inline">
+                            <label>Talla</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Ingresa la talla de pantalón.</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group-inline">
+                            <label>Color</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Color preferido del pantalón.</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+          
+                    <li style="background-color: #D1E9FF;">
+                      <input type="checkbox" id="zapatos-caballero" checked>
+                      <label class="tree_label" for="zapatos-caballero">Zapatos Caballero<span class="toggle-icon"></span></label>
+                      <ul class="formulario">
+                        <li style="background-color: #D1E9FF;">
+                          <div class="form-group-inline">
+                            <label>Talla</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Talla de calzado masculino.</div>
+                            </div>
+                          </div>
+                          <div class="form-group-inline">
+                            <label>Color</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Color deseado del zapato.</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+          
+                <li id="ropa-dama" style="background-color: #A6D1FF;">
+                  <input type="checkbox" id="smCB-2" checked>
+                  <label class="tree_label" for="smCB-2"><b>Ropa Dama</b><span class="toggle-icon"></span></label>
+                  <ul style="background-color: #A6D1FF;">
+                    <li style="background-color: #D1E9FF;">
+                      <input type="checkbox" id="falda-dama">
+                      <label class="tree_label" for="falda-dama">Falda Dama<span class="toggle-icon"></span></label>
+                      <ul class="formulario">
+                        <li style="background-color: #D1E9FF;">
+                          <div class="form-group-inline">
+                            <label>Talla</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Talla de la falda.</div>
+                            </div>
+                          </div>
+                          <div class="form-group-inline">
+                            <label>Color</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Color de la prenda.</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+          
+                    <li style="background-color: #D1E9FF;">
+                      <input type="checkbox" id="zapatos-dama" checked>
+                      <label class="tree_label" for="zapatos-dama">Zapatos Dama<span class="toggle-icon"></span></label>
+                      <ul class="formulario">
+                        <li style="background-color: #D1E9FF;">
+                          <div class="form-group-inline">
+                            <label>Talla</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Talla de zapato femenino.</div>
+                            </div>
+                          </div>
+                          <div class="form-group-inline">
+                            <label>Color</label>
+                            <div class="input-with-help input-with-tag" data-required="true">
+                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                              <span class="input-tag"></span>
+                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                              <div class="tooltip-text">Color preferido del zapato.</div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+    
+
+              </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+
+
+
+    </div>
+    <div class="card-footer text-center">
+      Árbol con inputs funcionales
+    </div>
+  </div>
+</div>
+
+<!-- Código para evitar que los inputs colapsen el árbol -->
+<script>
+  document.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  });
+
+  // Mostrar/ocultar las opciones de ropa según el sexo seleccionado
+  document.getElementById('select-sexo').addEventListener('change', function() {
+    const sexo = this.value;
+    const ropaCaballero = document.getElementById('ropa-caballero');
+    const ropaDama = document.getElementById('ropa-dama');
+
+    ropaCaballero.style.display = 'none';
+    ropaDama.style.display = 'none';
+
+    if (sexo === 'masculino') {
+      ropaCaballero.style.display = 'block';
+    } else if (sexo === 'femenino') {
+      ropaDama.style.display = 'block';
+    }
+  });
+</script>
+
+
+
+
+
+<script>
+  function mostrarTooltip(elemento) {
+    const contenedor = elemento.closest('.input-with-help');
+    const yaActivo = contenedor.classList.contains('active');
+
+    // Oculta todos los tooltips primero
+    document.querySelectorAll('.input-with-help').forEach(el => el.classList.remove('active'));
+
+    // Si no estaba activo, actívalo; si ya lo estaba, lo dejamos desactivado
+    if (!yaActivo) {
+      contenedor.classList.add('active');
+    }
+  }
+
+  document.addEventListener('click', function(event) {
+    // Cierra el tooltip si haces clic fuera del ícono o fuera del contenedor
+    if (!event.target.classList.contains('help-icon') && !event.target.closest('.tooltip-text')) {
+      document.querySelectorAll('.input-with-help').forEach(el => el.classList.remove('active'));
+    }
+  });
+</script>
+
+
+
+
+
+
+<script>
+  function actualizarInputTags() {
+  document.querySelectorAll('.input-with-tag').forEach(container => {
+    const isRequired = container.dataset.required === "true";
+    const tag = container.querySelector('.input-tag');
+    if (tag) {
+      tag.textContent = isRequired ? '(Requerido)' : '(Opcional)';
+    }
+  });
+}
+  document.addEventListener('DOMContentLoaded', function () {
+    actualizarInputTags();
+
+    // Por si algunos se agregan visualmente después con un pequeño retraso
+    setTimeout(actualizarInputTags, 300);
+  });
+</script>
+
+
+</body>
+</html>
