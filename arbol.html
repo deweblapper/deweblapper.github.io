@@ -156,7 +156,7 @@
 
 .tree_label {
   cursor: pointer;
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: space-between;
 }
@@ -217,7 +217,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
              
               <div class="form-group-inline">
                 <label>Versión</label>
-                <div class="input-with-help input-with-tag" data-required="false">
+                <div class="input-with-help input-with-tag" data-required="true">
                   <input type="text" placeholder="Version" value="1.0" readonly onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
@@ -253,18 +253,22 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
 
               <!---AQUI COMIENZA EL NODO DE CARACTERES-->
-              <div class="form-group-inline">
+              <div class="form-group-inline " >
               <!--<li style="background-color: #71B2FF;" >-->
                 <label>Caracter</label>
+
+          
+
                 <input type="checkbox" id="direccion-check" >
                 <label class="tree_label" for="direccion-check" style="width: 97.5%;">
-                  Nodo requerido para expresar la calidad o el carácter con el que el contribuyente obligado a llevar controles volumétricos actúa para efectos regulatorios.
+                  Seleccionar
                   <span class="toggle-icon"></span></label>
 
-  
-                  
-            
-            
+                  <!--<span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Nodo requerido para expresar la calidad o el carácter con el que el contribuyente obligado a llevar controles volumétricos actúa para efectos regulatorios.</div>-->
+
+          
 
                 <ul class="formulario">
                   <li style="background-color: #71B2FF;">
