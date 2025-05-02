@@ -197,6 +197,19 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 }
 
 
+/*PARA QUE UN INPUT SE VEA AL LADO DEL OTRO EN NODO TANQUE*/
+.form-group-inline-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.input-with-help-flex {
+  flex: 1;
+  min-width: 200px;
+}
+
+
   </style>
 </head>
 <body>
@@ -315,6 +328,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                 </ul>
               <!--</li>-->
               </div>
+              <!--AQUI TERMINA CARACTER-->
 
 
               <div class="form-group-inline">
@@ -340,159 +354,715 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroPozos</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="NumeroPozos M" onclick="event.stopPropagation()">
+                  <input type="number" placeholder="NumeroPozos M" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Requerido para expresar el número de pozos que cuentan con sistemas de medición a boca de pozo. En caso de no tener debe manifestar 0.</div>
                 </div>
               </div>
 
-
-
-
-
               <div class="form-group-inline">
-                <label>Sexo</label>
+                <label>NumeroTanques</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <select id="select-sexo" onclick="event.stopPropagation()">
-                    <option value="">Selecciona sexo</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="otro">Otro</option>
-                  </select>
+                  <input type="number" placeholder="NumeroTanques" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                  <div class="tooltip-text">Selecciona tu sexo de nacimiento o el que te identifique.</div>
+                  <div class="tooltip-text">Indicar el número total de tanques disponibles. Si no hay, colocar 0.</div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>NumeroDuctosEntradaSalida</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" placeholder="NumeroDuctosEntradaSalida" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Número de ductos que permiten entrada o salida de producto. Si no hay, colocar 0.</div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>NumeroDuctosTransporteDistribucion</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" placeholder="NumeroDuctosTransporteDistribucion" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Número de ductos utilizados para transporte o distribución. Colocar 0 si no existen.</div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>NumeroDispensarios</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" placeholder="NumeroDispensarios" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Número total de dispensarios en operación. Indicar 0 si no aplica.</div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>FechaYHoraCorte</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="datetime-local" placeholder="FechaYHoraCorte" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Fecha y hora en que se realizó el corte de información. Formato requerido: yyyy-mm-ddThh:mm.</div>
+                </div>
+              </div>
+              
+
+
+
+              
+             <!---AQUI COMIENZA EL NODO DE PRODUCTOS-->
+<div class="form-group-inline">
+  <label>PRODUCTOS</label>
+
+  <input type="checkbox" id="productos-check">
+  <label class="tree_label" for="productos-check" style="width: 97.5%;">
+    Seleccionar
+    <span class="toggle-icon"></span>
+  </label>
+
+  <ul class="formulario">
+    <li style="background-color: #71B2FF;">
+      <div class="form-group-inline">
+        <label>ClaveProducto</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <input type="text" placeholder="ClaveProducto" onclick="event.stopPropagation()">
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">
+            Requerido para expresar la clave del producto conforme al catálogo correspondiente.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group-inline">
+        <label>ClaveSubProducto</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <input type="text" placeholder="ClaveSubProducto" onclick="event.stopPropagation()">
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">
+            Requerido para expresar la clave del subproducto conforme al catálogo correspondiente.
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--AQUI COMIENZA LA PARTE DE SELECCION DE TIPO DE PRODUCTO-->
+
+
+      <div class="form-group-inline">
+        <label>Producto</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <select id="select-sexo" onclick="event.stopPropagation()">
+            <option value="">Selecciona el producto</option>
+            <option value="masculino">Gasolina</option>
+            <option value="femenino">Diesel</option>
+            <option value="otro">Otro</option>
+          </select>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">Selecciona tu sexo de nacimiento o el que te identifique.</div>
+        </div>
+      </div>
+
+
+
+      <ul>
+
+        <li id="ropa-caballero" style="background-color: #A6D1FF;">
+          <input type="checkbox" id="smCB-1" checked>
+          <label class="tree_label" for="smCB-1"><b>Gasolina</b><span class="toggle-icon"></span></label>
+
+          <ul>
+          <li style="background-color: #D1E9FF;">
+
+            <div class="form-group-inline">
+              <label>ComposOctanajeGasolina</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="text" placeholder="ComposOctanajeGasolina" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Condicional en caso de que haya seleccionado el producto PR07. Deberá tener un valor mínimo de 70 y un máximo de 130.</div>
+              </div>
+            </div>
+
+
+            <div class="form-group-inline">
+              <label>GasolinaConCombustibleNoFosil</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="text" placeholder="GasolinaConCombustibleNoFosil" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Condicional en caso de que haya seleccionado el producto PR07 para expresar si el producto contiene combustible no fósil.</div>
+              </div>
+            </div>
+
+            <div class="form-group-inline">
+              <label>ComposDeCombustibleNoFosilEnGasolina</label>
+              <div class="input-with-help input-with-tag" data-required="false">
+                <input type="text" placeholder="ComposDeCombustibleNoFosilEnGasolina" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Condicional en caso de que haya declarado “Sí” en el elemento “GasolinaConCombustibleNoFosil”, para expresar el porcentaje de combustible no fósil contenido en el producto. Deberá tener un valor mínimo de 1 a 99.</div>
+              </div>
+            </div>
+
+          
+          </li>
+        </ul>
+
+
+
+          <ul style="background-color: #A6D1FF;">
+            <li style="background-color: #D1E9FF;">
+              <input type="checkbox" id="pantalon-caballero">
+              <label class="tree_label" for="pantalon-caballero">Nodo hijo gasolina 1<span class="toggle-icon"></span></label>
+              <ul class="formulario">
+                <li style="background-color: #D1E9FF;">
+
+                  <div class="form-group-inline">
+                    <label>Talla</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Ingresa la talla de pantalón.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group-inline">
+                    <label>Color</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Color preferido del pantalón.</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+  
+            <li style="background-color: #D1E9FF;">
+              <input type="checkbox" id="zapatos-caballero" checked>
+              <label class="tree_label" for="zapatos-caballero">Nodo hijo gasolina 2<span class="toggle-icon"></span></label>
+              <ul class="formulario">
+                <li style="background-color: #D1E9FF;">
+                  <div class="form-group-inline">
+                    <label>Talla</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Talla de calzado masculino.</div>
+                    </div>
+                  </div>
+                  <div class="form-group-inline">
+                    <label>Color</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Color deseado del zapato.</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+  
+        <li id="ropa-dama" style="background-color: #A6D1FF;">
+          <input type="checkbox" id="smCB-2" checked>
+          <label class="tree_label" for="smCB-2"><b>Diesel</b><span class="toggle-icon"></span></label>
+          <ul style="background-color: #A6D1FF;">
+            <li style="background-color: #D1E9FF;">
+              <input type="checkbox" id="falda-dama">
+              <label class="tree_label" for="falda-dama">Nodo hijo diesel 1<span class="toggle-icon"></span></label>
+              <ul class="formulario">
+                <li style="background-color: #D1E9FF;">
+                  <div class="form-group-inline">
+                    <label>Talla</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Talla de la falda.</div>
+                    </div>
+                  </div>
+                  <div class="form-group-inline">
+                    <label>Color</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Color de la prenda.</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+  
+            <li style="background-color: #D1E9FF;">
+              <input type="checkbox" id="zapatos-dama" checked>
+              <label class="tree_label" for="zapatos-dama">Nodo hijo diesel 2<span class="toggle-icon"></span></label>
+              <ul class="formulario">
+                <li style="background-color: #D1E9FF;">
+                  <div class="form-group-inline">
+                    <label>Talla</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Talla de zapato femenino.</div>
+                    </div>
+                  </div>
+                  <div class="form-group-inline">
+                    <label>Color</label>
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Color" onclick="event.stopPropagation()">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Color preferido del zapato.</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+
+      </ul>
+
+
+
+
+      <!--AQUI COMIENZA EL NODO DE TANQUES-->
+
+      <li id="tanques" style="background-color: #A6D1FF;">
+        <input type="checkbox" id="smCB-3" checked>
+        <label class="tree_label" for="smCB-3"><b>Tanques</b><span class="toggle-icon"></span></label>
+        <ul style="background-color: #A6D1FF;">
+
+
+
+          <li style="background-color: #D1E9FF;">
+      
+            <div class="form-group-inline">
+              <label>ClaveIdentificacionTanque</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="text" placeholder="TQS-TDA-0001" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Requerido para expresar la clave de identificación de cada tanque o en su caso módulo, controlado por el contribuyente, conforme a la sección 5. “CLAVES”, subsección 5.2.</div>
+              </div>
+            </div>
+  
+            <div class="form-group-inline">
+              <label>LocalizacionYODescripcionTanque</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="text" placeholder="TANQUE DE ALMACENAMIENTO DE GASOLINA REGULAR TK-14001" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Requerido para expresar la localización y/o descripción de cada tanque o, en su caso, modulo (ejemplo: terminal de almacenamiento pajaritos, tanque de gasolina Premium o crudo para exportación Dos Bocas capacidad de 20,000 barriles).</div>
+              </div>
+            </div>
+  
+            <div class="form-group-inline">
+              <label>VigenciaCalibracionTanque</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="date" value="" onclick="event.stopPropagation()">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Requerido para expresar la vigencia de calibración de cada tanque, deberá expresarse yyyy-mm-dd, de acuerdo con la especificación ISO 8601.</div>
+              </div>
+            </div>
+
+
+           
+
+              <div class="form-group-inline ">
+                <label>CapacidadTotalTanque</label>
+              
+                <div class="form-group-inline-flex">
+                  <!-- Input para ValorNumerico -->
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="number" placeholder="Valor numérico" value="">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la capacidad que, respetando en todo momento los parámetros de seguridad y fiabilidad de la propia instalación (márgenes operacionales) y desde un punto de vista técnico, puede proporcionar la instalación (capacidad máxima de diseño), utilizando todos los equipos de la misma (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+                    </div>
+                  
+                    <!-- Input para UM -->
+                    <div class="input-with-help input-with-tag" data-required="true">
+                      <input type="text" placeholder="Unidad de medida (UM)" value="">
+                      <span class="input-tag"></span>
+                      <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                      <div class="tooltip-text">Unidad de medida asociada al valor numérico.</div>
+                    </div>
                 </div>
               </div>
 
+             
 
-
-              <ul>
-
-                <li id="ropa-caballero" style="background-color: #A6D1FF;">
-                  <input type="checkbox" id="smCB-1" checked>
-                  <label class="tree_label" for="smCB-1"><b>Ropa Caballero</b><span class="toggle-icon"></span></label>
-                  <ul style="background-color: #A6D1FF;">
-                    <li style="background-color: #D1E9FF;">
-                      <input type="checkbox" id="pantalon-caballero">
-                      <label class="tree_label" for="pantalon-caballero">Pantalón Caballero<span class="toggle-icon"></span></label>
-                      <ul class="formulario">
-                        <li style="background-color: #D1E9FF;">
-
-                          <div class="form-group-inline">
-                            <label>Talla</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Ingresa la talla de pantalón.</div>
-                            </div>
-                          </div>
-
-                          <div class="form-group-inline">
-                            <label>Color</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Color preferido del pantalón.</div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
+              <div class="form-group-inline">
+                <label>CapacidadOperativaTanque</label>
+                <div class="form-group-inline-flex">
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="number" placeholder="Valor numérico" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la capacidad que es susceptible de ser extraída de cada tanque (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+                  </div>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="Unidad de medida (UM)" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Unidad de medida asociada al valor numérico.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>CapacidadUtilTanque</label>
+                <div class="form-group-inline-flex">
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="number" placeholder="Valor numérico" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la capacidad que resulta de la “CapacidadTotalTanque” menos “VolumenMinimoOperacion”. No obstante, es posible que esta capacidad útil pueda verse reducida por otras limitaciones dependiendo de su integración en el conjunto del sistema de cada tanque (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+                  </div>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="Unidad de medida (UM)" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Unidad de medida asociada al valor numérico.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>CapacidadFondajeTanque</label>
+                <div class="form-group-inline-flex">
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="number" placeholder="Valor numérico" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Valor adimensional del volumen. Condicional para expresar la capacidad mínima de líquido de fondo que el tanque debe tener para que la extracción de líquidos mediante bombeo sea técnicamente factible (cantidad expresada en litros tratándose de petrolíferos, barril tratándose de petróleo y condensados), tratándose de cada tanque que contenga líquido.</div>
+                  </div>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="Unidad de medida (UM)" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Unidad de medida asociada al valor numérico.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>VolumenMinimoOperacion</label>
+                <div class="form-group-inline-flex">
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="number" placeholder="Valor numérico" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar el volumen por debajo del cual no puede utilizarse la instalación al no estar garantizada la fiabilidad y la seguridad operativa de los equipos y del propio tanque por cada tanque (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+                  </div>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="Unidad de medida (UM)" value="">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">Unidad de medida asociada al valor numérico.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group-inline">
+                <label>EstadoTanque</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" placeholder="Estado del tanque" value="">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Estado del tanque: 1 (activo), 0 (inactivo). Requerido para indicar el estado de cada tanque. Deberá manifestar O - en operación, o en su caso F - fuera de operación.</div>
+                </div>
+              </div>
+              
+              
           
-                    <li style="background-color: #D1E9FF;">
-                      <input type="checkbox" id="zapatos-caballero" checked>
-                      <label class="tree_label" for="zapatos-caballero">Zapatos Caballero<span class="toggle-icon"></span></label>
-                      <ul class="formulario">
-                        <li style="background-color: #D1E9FF;">
-                          <div class="form-group-inline">
-                            <label>Talla</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Talla de calzado masculino.</div>
-                            </div>
-                          </div>
-                          <div class="form-group-inline">
-                            <label>Color</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Color deseado del zapato.</div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+
+
+
+
+
+
+  
+          </li>
+
+
+
+
+
+<!--AQUI COMIENZA MEDICION DEL TAQUE-->
+
+
+          <li style="background-color: #D1E9FF;">
+            <input type="checkbox" id="tanque-1" >
+            <label class="tree_label" for="tanque-1">MedicionTanque<span class="toggle-icon"></span></label>
+            
+            <ul class="formulario">
+              <li style="background-color: #D1E9FF;">
+      
+                <div class="form-group-inline">
+                  <label>SistemaMedicionTanque</label>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="TQS-TDA-0001" onclick="event.stopPropagation()">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">IncertidumbreMedicionSistMedicionTanque</div>
+                  </div>
+                </div>
+      
+                <div class="form-group-inline">
+                  <label>LocalizODescripSistMedicionTanque</label>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="text" placeholder="TANQUE DE ALMACENAMIENTO DE GASOLINA REGULAR TK-14001" onclick="event.stopPropagation()">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">IncertidumbreMedicionSistMedicionTanque</div>
+                  </div>
+                </div>
+      
+                <div class="form-group-inline">
+                  <label>VigenciaCalibracionSistMedicionTanque</label>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="date"  onclick="event.stopPropagation()">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">IncertidumbreMedicionSistMedicionTanque</div>
+                  </div>
+                </div>
+
+                <div class="form-group-inline">
+                  <label>IncertidumbreMedicionSistMedicionTanque</label>
+                  <div class="input-with-help input-with-tag" data-required="true">
+                    <input type="number"  onclick="event.stopPropagation()">
+                    <span class="input-tag"></span>
+                    <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                    <div class="tooltip-text">IncertidumbreMedicionSistMedicionTanque</div>
+                  </div>
+                </div>
+      
+      
+              </li>
+            </ul>
+
+          </li>
+
+
+
+
+
           
-                <li id="ropa-dama" style="background-color: #A6D1FF;">
-                  <input type="checkbox" id="smCB-2" checked>
-                  <label class="tree_label" for="smCB-2"><b>Ropa Dama</b><span class="toggle-icon"></span></label>
-                  <ul style="background-color: #A6D1FF;">
-                    <li style="background-color: #D1E9FF;">
-                      <input type="checkbox" id="falda-dama">
-                      <label class="tree_label" for="falda-dama">Falda Dama<span class="toggle-icon"></span></label>
-                      <ul class="formulario">
-                        <li style="background-color: #D1E9FF;">
-                          <div class="form-group-inline">
-                            <label>Talla</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Talla de la falda.</div>
-                            </div>
-                          </div>
-                          <div class="form-group-inline">
-                            <label>Color</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Color de la prenda.</div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-          
-                    <li style="background-color: #D1E9FF;">
-                      <input type="checkbox" id="zapatos-dama" checked>
-                      <label class="tree_label" for="zapatos-dama">Zapatos Dama<span class="toggle-icon"></span></label>
-                      <ul class="formulario">
-                        <li style="background-color: #D1E9FF;">
-                          <div class="form-group-inline">
-                            <label>Talla</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Talla" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Talla de zapato femenino.</div>
-                            </div>
-                          </div>
-                          <div class="form-group-inline">
-                            <label>Color</label>
-                            <div class="input-with-help input-with-tag" data-required="true">
-                              <input type="text" placeholder="Color" onclick="event.stopPropagation()">
-                              <span class="input-tag"></span>
-                              <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-                              <div class="tooltip-text">Color preferido del zapato.</div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+<!--AQUI COMIENZA EXISTENCIAS-->
+
+<li style="background-color: #D1E9FF;">
+  <input type="checkbox" id="existencias-1" >
+  <label class="tree_label" for="existencias-1">EXISTENCIAS<span class="toggle-icon"></span></label>
+  
+  <ul class="formulario">
+    <li style="background-color: #D1E9FF;">
+
+      <div class="form-group-inline">
+        <label>VolumenExistenciasAnterior</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Valor del volumen de existencias anterior.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>VolumenAcumOpsRecepcion</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Volumen acumulado de operaciones de recepción.</div>
+          </div>
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="text" placeholder="Unidad de medida (UM)" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Unidad de medida del volumen acumulado.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>HoraRecepcionAcumulado</label>
+        <div class="input-with-help input-with-tag">
+          <input type="time" placeholder="Hora">
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">Hora en que se acumuló la recepción. (Opcional)</div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>VolumenAcumOpsEntrega</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Volumen acumulado de operaciones de entrega.</div>
+          </div>
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="text" placeholder="Unidad de medida (UM)" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Unidad de medida del volumen entregado.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>VolumenExistencias</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Volumen total de existencias actual.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>FechaYHoraEstaMedicion</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <input type="datetime-local" >
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">Fecha y hora de esta medición.</div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>FechaYHoraMedicionAnterior</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <input type="datetime-local" >
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">Fecha y hora de la medición anterior.</div>
+        </div>
+      </div>
+
+    </li>
+
+        </ul>
+      </li>
+
+
+
+
+
+
+
+      <!--AQUI COMIENZA ENTREGAS-->
+
+<li style="background-color: #D1E9FF;">
+  <input type="checkbox" id="entregas-1" >
+  <label class="tree_label" for="entregas-1">ENTREGAS<span class="toggle-icon"></span></label>
+  
+  <ul class="formulario">
+    <li style="background-color: #D1E9FF;">
+
+      <div class="form-group-inline">
+        <label>TotalEntregas</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Requerido para expresar el número total de registros de entrega por ventas, autoconsumo o por prestaciones de servicio.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>SumaVolumenEntregado</label>
+        <div class="form-group-inline-flex">
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="number" step="any" placeholder="Valor numérico" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la suma del volumen entregado por ventas, autoconsumo o por prestaciones de servicio (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+          </div>
+          <div class="input-with-help input-with-tag" data-required="true">
+            <input type="text" placeholder="Unidad de medida (UM)" >
+            <span class="input-tag"></span>
+            <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+            <div class="tooltip-text">Unidad de medida del volumen acumulado.</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group-inline">
+        <label>TotalDocumentos</label>
+        <div class="input-with-help input-with-tag" data-required="true">
+          <input type="number" placeholder="Hora">
+          <span class="input-tag"></span>
+          <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+          <div class="tooltip-text">Requerido para expresar el total de documentos (complementos) que amparen las entregas por ventas, autoconsumo o por prestaciones de servicio.</div>
+        </div>
+      </div>
+      
     
+     
+      
+    
+      
+     
 
-              </ul>
+    </li>
+
+        </ul>
+      </li>
+
+
+
+      
+
+
+
+
+
+
+
+    </li>
+  </ul>
+</div>
+<!--AQUI TERMINA PRODUCTOS-->
+
+
+
+
+
+
+
+
+              
 
 
 
