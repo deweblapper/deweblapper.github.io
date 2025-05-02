@@ -980,11 +980,10 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
 
       <!--AQUI COMIENZA ENTREGAS-->
-
 <li style="background-color: #D1E9FF;">
-  <input type="checkbox" id="entregas-1" >
+  <input type="checkbox" id="entregas-1">
   <label class="tree_label" for="entregas-1">ENTREGAS<span class="toggle-icon"></span></label>
-  
+
   <ul class="formulario">
     <li style="background-color: #D1E9FF;">
 
@@ -992,53 +991,185 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         <label>TotalEntregas</label>
         <div class="form-group-inline-flex">
           <div class="input-with-help input-with-tag" data-required="true">
-            <input type="number" step="any" placeholder="Valor numérico" >
+            <input type="number" step="any" placeholder="Valor numérico">
             <span class="input-tag"></span>
             <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-            <div class="tooltip-text">Requerido para expresar el número total de registros de entrega por ventas, autoconsumo o por prestaciones de servicio.</div>
+            <div class="tooltip-text">Requerido para expresar el número total de registros de entrega por ventas,
+              autoconsumo o por prestaciones de servicio.</div>
           </div>
         </div>
       </div>
-      
+
       <div class="form-group-inline">
         <label>SumaVolumenEntregado</label>
         <div class="form-group-inline-flex">
           <div class="input-with-help input-with-tag" data-required="true">
-            <input type="number" step="any" placeholder="Valor numérico" >
+            <input type="number" step="any" placeholder="Valor numérico">
             <span class="input-tag"></span>
             <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-            <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la suma del volumen entregado por ventas, autoconsumo o por prestaciones de servicio (cantidad expresada en litros tratándose de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
+            <div class="tooltip-text">Valor adimensional del volumen. Requerido para expresar la suma del volumen
+              entregado por ventas, autoconsumo o por prestaciones de servicio (cantidad expresada en litros tratándose
+              de petrolíferos, pie cúbico tratándose de gas natural para contratistas y asignatarios, metro cúbico
+              tratándose de gas natural en los demás casos, barril tratándose de petróleo y condensados).</div>
           </div>
           <div class="input-with-help input-with-tag" data-required="true">
-            <input type="text" placeholder="Unidad de medida (UM)" >
+            <input type="text" placeholder="Unidad de medida (UM)">
             <span class="input-tag"></span>
             <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
             <div class="tooltip-text">Unidad de medida del volumen acumulado.</div>
           </div>
         </div>
       </div>
-      
+
       <div class="form-group-inline">
         <label>TotalDocumentos</label>
         <div class="input-with-help input-with-tag" data-required="true">
           <input type="number" placeholder="Hora">
           <span class="input-tag"></span>
           <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
-          <div class="tooltip-text">Requerido para expresar el total de documentos (complementos) que amparen las entregas por ventas, autoconsumo o por prestaciones de servicio.</div>
+          <div class="tooltip-text">Requerido para expresar el total de documentos (complementos) que amparen las
+            entregas por ventas, autoconsumo o por prestaciones de servicio.</div>
         </div>
       </div>
-      
-    
-     
-      
-    
-      
-     
 
-    </li>
 
+
+
+
+
+      <!--AQUI COMIENZA EL REGISTRO DE CADA ENTREGA INDIVIDUAL-->
+      <li style="background-color: #FFF3CD;">
+        <input type="checkbox" id="entrega-1">
+        <label class="tree_label" for="entrega-1">ENTREGA<span class="toggle-icon"></span></label>
+      
+        <ul class="formulario">
+          <li style="background-color: #FFF3CD;">
+            
+            <!-- NumeroDeRegistro -->
+            <div class="form-group-inline">
+              <label>NumeroDeRegistro</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="text" placeholder="Número de registro">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Número único que identifica el registro de entrega.</div>
+              </div>
+            </div>
+      
+            <!-- VolumenInicialTanque -->
+            <div class="form-group-inline">
+              <label>VolumenInicialTanque</label>
+              <div class="form-group-inline-flex">
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" step="any" placeholder="Valor numérico">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Volumen del tanque al inicio de la entrega.</div>
+                </div>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="Unidad de medida (UM)">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Unidad de medida correspondiente al volumen inicial.</div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- VolumenFinalTanque -->
+            <div class="form-group-inline">
+              <label>VolumenFinalTanque</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="number" step="any" placeholder="Valor numérico">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Volumen del tanque al final de la entrega.</div>
+              </div>
+            </div>
+      
+            <!-- VolumenEntregado -->
+            <div class="form-group-inline">
+              <label>VolumenEntregado</label>
+              <div class="form-group-inline-flex">
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="number" step="any" placeholder="Valor numérico">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Volumen entregado durante la operación.</div>
+                </div>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input type="text" placeholder="Unidad de medida (UM)">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Unidad de medida del volumen entregado.</div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Temperatura -->
+            <div class="form-group-inline">
+              <label>Temperatura</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="number" step="any" placeholder="Temperatura en °C">
+                <span class="input-tag">°C</span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Temperatura medida durante la entrega.</div>
+              </div>
+            </div>
+      
+            <!-- PresionAbsoluta -->
+            <div class="form-group-inline">
+              <label>PresionAbsoluta</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="number" step="any" placeholder="Presión absoluta">
+                <span class="input-tag">atm</span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Presión absoluta medida durante la entrega.</div>
+              </div>
+            </div>
+      
+            <!-- FechaYHoraInicialEntrega -->
+            <div class="form-group-inline">
+              <label>FechaYHoraInicialEntrega</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="datetime-local">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Fecha y hora en que comenzó la entrega.</div>
+              </div>
+            </div>
+      
+            <!-- FechaYHoraFinalEntrega -->
+            <div class="form-group-inline">
+              <label>FechaYHoraFinalEntrega</label>
+              <div class="input-with-help input-with-tag" data-required="true">
+                <input type="datetime-local">
+                <span class="input-tag"></span>
+                <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                <div class="tooltip-text">Fecha y hora en que finalizó la entrega.</div>
+              </div>
+            </div>
+      
+          </li>
         </ul>
       </li>
+<!--///-->      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </li>
+  </ul>
+</li>
 
 
 
