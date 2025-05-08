@@ -447,8 +447,9 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                 </div>
               </div>
               
-
-
+              <center>
+              <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del reporte">
+            </center>
 
               
              <!---AQUI COMIENZA EL NODO DE PRODUCTOS-->
@@ -463,6 +464,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
   <ul class="formulario">
     <li style="background-color: #71B2FF;">
+
       <div class="form-group-inline">
         <label>ClaveProducto</label>
         <div class="input-with-help input-with-tag" data-required="true">
@@ -505,6 +507,10 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
           <div class="tooltip-text">Selecciona tu sexo de nacimiento o el que te identifique.</div>
         </div>
       </div>
+
+      <center>
+        <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del producto">
+      </center>
 
 
 
@@ -896,7 +902,9 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
           </li>
 
-
+          <center>
+            <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del tanque">
+          </center>
 
 
 
@@ -1001,6 +1009,9 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
       </div>
 
 
+      <center>
+        <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos de existencias">
+      </center>
 
 
    
@@ -1009,6 +1020,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
   <table>
     <thead>
       <tr>
+        <th>Del Tanque</th>
         <th>Volumen Existencias Anterior</th>
         <th>Volumen Recepción Acumulado</th>
         <th>UM (Recepción)</th>
@@ -1021,6 +1033,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
     </thead>
     <tbody>
       <tr>
+        <td>TQS-TDA-0003</td>
         <td>-120682.680</td>
         <td>0.000</td>
         <td>UM03</td>
@@ -1104,12 +1117,17 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         </div>
       </div>
 
+      <center>
+        <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos geneales de las Entregas">
+      </center>
+
 
       <!-- Tabla de datos de entregas padre -->
 <div class="responsive-table">
   <table>
     <thead>
       <tr>
+        <th>Del Tanque</th>
         <th>TotalEntregas</th>
         <th>SumaVolumenEntregado</th>
         <th>UM</th>
@@ -1118,6 +1136,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
     </thead>
     <tbody>
       <tr>
+        <td>TQS-TDA-0003</td>
         <td>2</td>
         <td>59079.720</td>
         <td>UM03</td>
@@ -1245,11 +1264,16 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               </div>
             </div>
 
+            <center>
+              <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del detalle de la entrega">
+            </center>
+
             <!-- Tabla de datos de entrega hija -->
             <div class="responsive-table">
               <table>
                 <thead>
                   <tr>
+                    <th>Del Tanque</th>
                     <th>N° Registro</th>
                     <th>Vol Inicial</th>
                     <th>UM</th>
@@ -1264,6 +1288,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                 </thead>
                 <tbody>
                   <tr>
+                    <td>TQS-TDA-0003</td>
                     <td>20220915103</td>
                     <td>10952754.883</td>
                     <td>UM03</td>
@@ -1276,6 +1301,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <td>2025-05-07 08:30</td>
                   </tr>
                   <tr>
+                    <td>TQS-TDA-0003</td>
                     <td>20220915103</td>
                     <td>10952754.883</td>
                     <td>UM03</td>
@@ -1337,6 +1363,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
   <table>
     <thead>
       <tr>
+        <th>Del Producto</th>
         <th>Clave Tanque</th>
         <th>Descripción</th>
         <th>Vigencia Calibración</th>
@@ -1347,12 +1374,14 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         <th>Vol. Mín. Operación</th>
         <th>Estado</th>
         <th>Sistema Medición</th>
+        <th>LocODesSistMedTanque</th>
         <th>Vigencia Cal. Medición</th>
         <th>Incertidumbre</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td>PR07</td>
         <td>TQS-TDA-0003</td>
         <td>TANQUE DE ALMACENAMIENTO DE GASOLINA PREMIUM TK-14003</td>
         <td>2029-12-04</td>
@@ -1363,6 +1392,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         <td>1,058,616.000 UM03</td>
         <td>1</td>
         <td>SME-TQS-TDA-LIT14003</td>
+        <td>TANQUE DE ALMACENAMIENTO DE GASOLINA PREMIUM TK-14003</td>
         <td>2023-06-15</td>
         <td>0.190</td>
       </tr>
@@ -1381,15 +1411,38 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
 
 
+
       </ul>  <!--AQUI TERMINA EL UL DE PRODUCTOS-->
 
 
-
-
-   
-
-
   </ul>
+
+
+
+
+   <!-- Tabla de Producto -->
+<div class="responsive-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Clave Producto</th>
+        <th>Clave Subproducto</th>
+        <th>Octanaje</th>
+        <th>Combustible No Fósil (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PR07</td>
+        <td>SP17</td>
+        <td>91</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
 </div>
 <!--AQUI TERMINA PRODUCTOS-->
 
@@ -1413,8 +1466,62 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
 
             </li>
+
+
+
+<!--Tabla del reporte-->
+            <div class="responsive-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Versión</th>
+                    <th>RFC Contribuyente</th>
+                    <th>RFC Representante Legal</th>
+                    <th>RFC Proveedor</th>
+                    <th>Tipo de Carácter</th>
+                    <th>Modalidad Permiso</th>
+                    <th>Número de Permiso</th>
+                    <th>Clave Instalación</th>
+                    <th>Descripción Instalación</th>
+                    <th>No. Pozos</th>
+                    <th>No. Tanques</th>
+                    <th>No. Ductos Entrada/Salida</th>
+                    <th>No. Ductos Transporte/Distribución</th>
+                    <th>No. Dispensarios</th>
+                    <th>Fecha y Hora Corte</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1.0</td>
+                    <td>VME881019MC8</td>
+                    <td>GABG790914TF7</td>
+                    <td>IGS050811390</td>
+                    <td>Permisionario</td>
+                    <td>PER11</td>
+                    <td>PL/19394/ALM/2016</td>
+                    <td>ALM-0001</td>
+                    <td>VOPAK MEXICO TERMINAL VERACRUZ</td>
+                    <td>0</td>
+                    <td>25</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>2022-09-15T01:48:00-6:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+
+
+
+
+
           </ul>
+          
         </li>
+        <input style="float: right; cursor: pointer; background-color: #07a714; color: #fff; padding: 10px;" type="button" value="Guardar Reporte">
       </ul>
       
 
