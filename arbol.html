@@ -210,6 +210,42 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 }
 
 
+
+.responsive-table {
+  overflow-x: auto;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border: 1px solid #000;
+}
+
+.responsive-table table {
+  width: 100%;
+  border-collapse:collapse;
+  min-width: 300px;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.responsive-table th {
+  background-color: #b8cce0;
+  font-weight: bold;
+}
+
+
+.container
+ {
+        max-width: 100%!important;
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -638,12 +674,8 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         </li>
 
 
-      </ul>
 
-
-
-
-      <!--AQUI COMIENZA EL NODO DE TANQUES-->
+           <!--AQUI COMIENZA EL NODO DE TANQUES-->
 
       <li id="tanques" style="background-color: #A6D1FF;">
         <input type="checkbox" id="smCB-3" checked>
@@ -1033,6 +1065,30 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
       </div>
 
 
+      <!-- Tabla de datos de entregas padre -->
+<div class="responsive-table">
+  <table>
+    <thead>
+      <tr>
+        <th>TotalEntregas</th>
+        <th>SumaVolumenEntregado</th>
+        <th>UM</th>
+        <th>TotalDocumentos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2</td>
+        <td>59079.720</td>
+        <td>UM03</td>
+        <td>1</td>
+      </tr>
+      <!-- Puedes agregar más filas dinámicamente aquí -->
+    </tbody>
+  </table>
+</div>
+
+
 
 
 
@@ -1148,11 +1204,67 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                 <div class="tooltip-text">Fecha y hora en que finalizó la entrega.</div>
               </div>
             </div>
+
+            <!-- Tabla de datos de entrega hija -->
+            <div class="responsive-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>N° Registro</th>
+                    <th>Vol Inicial</th>
+                    <th>UM</th>
+                    <th>Vol Final</th>
+                    <th>Vol Entregado</th>
+                    <th>UM Entregado</th>
+                    <th>Temp (°C)</th>
+                    <th>Presión A (atm)</th>
+                    <th>Fecha Inicial</th>
+                    <th>Fecha Final</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>20220915103</td>
+                    <td>10952754.883</td>
+                    <td>UM03</td>
+                    <td>10898570.313</td>
+                    <td>29539.610</td>
+                    <td>UM03</td>
+                    <td>27.265</td>
+                    <td>1.000</td>
+                    <td>2025-05-07 08:00</td>
+                    <td>2025-05-07 08:30</td>
+                  </tr>
+                  <tr>
+                    <td>20220915103</td>
+                    <td>10952754.883</td>
+                    <td>UM03</td>
+                    <td>10898570.313</td>
+                    <td>29540.110</td>
+                    <td>UM03</td>
+                    <td>27.265</td>
+                    <td>1.000</td>
+                    <td>2025-05-07 08:00</td>
+                    <td>2025-05-07 08:30</td>
+                  </tr>
+                  <!-- Puedes agregar más filas dinámicamente aquí -->
+                </tbody>
+              </table>
+            </div>
+            
+
+
+
+
+
+
       
           </li>
         </ul>
       </li>
 <!--///-->      
+
+
 
 
 
@@ -1182,6 +1294,19 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
 
 
     </li>
+<!--AQUI TERINA EL BLOQUE DE TANQUES-->
+
+
+
+
+      </ul>  <!--AQUI TERMINA EL UL DE PRODUCTOS-->
+
+
+
+
+   
+
+
   </ul>
 </div>
 <!--AQUI TERMINA PRODUCTOS-->
