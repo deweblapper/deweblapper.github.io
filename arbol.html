@@ -267,7 +267,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>Versión</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="Version" value="1.0" readonly onclick="event.stopPropagation()">
+                  <input id="txtVersion" type="text" placeholder="Version" value="1.0" readonly onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Versión de xsd.</div>
@@ -277,7 +277,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>RfcContribuyente</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="RfcContribuyente" onclick="event.stopPropagation()">
+                  <input id="txtRfcContribuyente" type="text" placeholder="RfcContribuyente" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Requerido para todos los contribuyentes, para expresar su RFC. Puede ser de persona moral o física.</div>
@@ -287,14 +287,24 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>RfcRepresentanteLegal</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="RfcRepresentanteLegal M" onclick="event.stopPropagation()">
+                  <input id="txtRfcRepresentanteLegal" type="text" placeholder="RfcRepresentanteLegal M" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Condicional para todos los contribuyentes que sean persona moral, para expresar el RFC de su representante legal. El RFC deberá contener 13 caracteres al tratarse de una persona física.</div>
                 </div>
               </div>
 
-          
+              <div class="form-group-inline">
+                <label>RFCProveedor</label>
+                <div class="input-with-help input-with-tag" data-required="true">
+                  <input id="txtRFCProveedor" type="text" placeholder="RFCProveedor M" onclick="event.stopPropagation()">
+                  <span class="input-tag"></span>
+                  <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
+                  <div class="tooltip-text">Condicional para todos los contribuyentes que sean persona moral, para expresar el RFC de su proveedor. El RFC deberá contener 13 caracteres al tratarse de una persona física.</div>
+                </div>
+              </div>
+
+             
       
          
 
@@ -324,7 +334,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <div class="form-group-inline">
                       <label>TipoCaracter</label>
                       <div class="input-with-help input-with-tag" data-required="true">
-                        <input type="text" placeholder="TipoCaracter" onclick="event.stopPropagation()">
+                        <input id="txtTipoCaracter" type="text" placeholder="TipoCaracter" onclick="event.stopPropagation()">
                         <span class="input-tag"></span>
                         <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                         <div class="tooltip-text">Requerido para expresar el carácter con el que actúa para efectos regulatorios.</div>
@@ -334,7 +344,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <div class="form-group-inline">
                       <label>ModalidadPermiso</label>
                       <div class="input-with-help input-with-tag" data-required="true">
-                        <input type="text" placeholder="ModalidadPermiso" onclick="event.stopPropagation()">
+                        <input id="txtModalidadPermiso" type="text" placeholder="ModalidadPermiso" onclick="event.stopPropagation()">
                         <span class="input-tag"></span>
                         <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                         <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “permisionario”, para expresar el tipo de permiso conforme a lo señalado en la sección 4. “VALIDACIONES ADICIONALES A REALIZAR”, subsección 4.1 “Tipo definido para los tipos de permisos”.</div>
@@ -344,7 +354,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <div class="form-group-inline">
                       <label>NumPermiso</label>
                       <div class="input-with-help input-with-tag" data-required="true">
-                        <input type="text" placeholder="NumPermiso" onclick="event.stopPropagation()">
+                        <input id="txtNumPermiso" type="text" placeholder="NumPermiso" onclick="event.stopPropagation()">
                         <span class="input-tag"></span>
                         <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                         <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “permisionario” para expresar el número de permiso otorgado por la Comisión Reguladora de Energía o la Secretaría de Energía, siguiendo el patrón asociado al permiso, conforme a la sección 4. “VALIDACIONES ADICIONALES A REALIZAR”, subsección 4.1 “Tipo definido para los tipos de permisos”.</div>
@@ -354,7 +364,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <div class="form-group-inline">
                       <label>NumContratoOAsignacion</label>
                       <div class="input-with-help input-with-tag" data-required="true">
-                        <input type="text" placeholder="NumContratoOAsignacion" onclick="event.stopPropagation()">
+                        <input id="txtNumContratoOAsignacion" type="text" placeholder="NumContratoOAsignacion" onclick="event.stopPropagation()">
                         <span class="input-tag"></span>
                         <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                         <div class="tooltip-text">Condicional cuando en el elemento “TipoCaracter” se haya seleccionado “contratista” o “asignatario” para expresar el número de asignación otorgada por la Secretaría de Energía o el número de contrato celebrado con la Comisión Nacional de Hidrocarburos, según corresponda.</div>
@@ -370,7 +380,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>ClaveInstalacion</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="ClaveInstalacion M" onclick="event.stopPropagation()">
+                  <input id="txtClaveInstalacion" type="text" placeholder="ClaveInstalacion M" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Requerido para expresar la clave de identificación de la instalación o proceso donde deban instalarse sistemas de medición, conforme a la sección 5 “Claves”, subsección 5.1.</div>
@@ -380,7 +390,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>DescripcionInstalacion</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="text" placeholder="DescripcionInstalacion M" onclick="event.stopPropagation()">
+                  <input id="txtDescripcionInstalacion" type="text" placeholder="DescripcionInstalacion M" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Requerido para describir la instalación o proceso donde deban instalarse sistemas de medición.</div>
@@ -390,7 +400,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroPozos</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="number" placeholder="NumeroPozos M" onclick="event.stopPropagation()">
+                  <input id="txtNumeroPozos" type="number" placeholder="NumeroPozos M" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Requerido para expresar el número de pozos que cuentan con sistemas de medición a boca de pozo. En caso de no tener debe manifestar 0.</div>
@@ -400,7 +410,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroTanques</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="number" placeholder="NumeroTanques" onclick="event.stopPropagation()">
+                  <input id="txtNumeroTanques" type="number" placeholder="NumeroTanques" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Indicar el número total de tanques disponibles. Si no hay, colocar 0.</div>
@@ -410,7 +420,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroDuctosEntradaSalida</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="number" placeholder="NumeroDuctosEntradaSalida" onclick="event.stopPropagation()">
+                  <input id="txtNumeroDuctosEntradaSalida" type="number" placeholder="NumeroDuctosEntradaSalida" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Número de ductos que permiten entrada o salida de producto. Si no hay, colocar 0.</div>
@@ -420,7 +430,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroDuctosTransporteDistribucion</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="number" placeholder="NumeroDuctosTransporteDistribucion" onclick="event.stopPropagation()">
+                  <input id="txtNumeroDuctosTransporteDistribucion" type="number" placeholder="NumeroDuctosTransporteDistribucion" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Número de ductos utilizados para transporte o distribución. Colocar 0 si no existen.</div>
@@ -430,7 +440,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>NumeroDispensarios</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="number" placeholder="NumeroDispensarios" onclick="event.stopPropagation()">
+                  <input id="txtNumeroDispensarios" type="number" placeholder="NumeroDispensarios" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Número total de dispensarios en operación. Indicar 0 si no aplica.</div>
@@ -440,7 +450,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               <div class="form-group-inline">
                 <label>FechaYHoraCorte</label>
                 <div class="input-with-help input-with-tag" data-required="true">
-                  <input type="datetime-local" placeholder="FechaYHoraCorte" onclick="event.stopPropagation()">
+                  <input id="txtFechaYHoraCorte" type="datetime-local" placeholder="FechaYHoraCorte" onclick="event.stopPropagation()">
                   <span class="input-tag"></span>
                   <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                   <div class="tooltip-text">Fecha y hora en que se realizó el corte de información. Formato requerido: yyyy-mm-ddThh:mm.</div>
@@ -448,7 +458,14 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
               </div>
               
               <center>
-              <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del reporte">
+
+                <input 
+  style="cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" 
+  type="button" 
+  value="Agregar datos del reporte" 
+  onclick="agregarDatosReporte()">
+
+
             </center>
 
               
@@ -468,7 +485,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
       <div class="form-group-inline">
         <label>ClaveProducto</label>
         <div class="input-with-help input-with-tag" data-required="true">
-          <input type="text" placeholder="ClaveProducto" onclick="event.stopPropagation()">
+          <input id="txtClaveProducto" type="text" placeholder="ClaveProducto" onclick="event.stopPropagation()">
           <span class="input-tag"></span>
           <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
           <div class="tooltip-text">
@@ -480,7 +497,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
       <div class="form-group-inline">
         <label>ClaveSubProducto</label>
         <div class="input-with-help input-with-tag" data-required="true">
-          <input type="text" placeholder="ClaveSubProducto" onclick="event.stopPropagation()">
+          <input id="txtClaveSubProducto" type="text" placeholder="ClaveSubProducto" onclick="event.stopPropagation()">
           <span class="input-tag"></span>
           <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
           <div class="tooltip-text">
@@ -508,9 +525,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         </div>
       </div>
 
-      <center>
-        <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del producto">
-      </center>
+  
 
 
 
@@ -526,7 +541,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
             <div class="form-group-inline">
               <label>ComposOctanajeGasolina</label>
               <div class="input-with-help input-with-tag" data-required="true">
-                <input type="text" placeholder="ComposOctanajeGasolina" onclick="event.stopPropagation()">
+                <input id="txtComposOctanajeGasolina" type="text" placeholder="ComposOctanajeGasolina" onclick="event.stopPropagation()">
                 <span class="input-tag"></span>
                 <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                 <div class="tooltip-text">Condicional en caso de que haya seleccionado el producto PR07. Deberá tener un valor mínimo de 70 y un máximo de 130.</div>
@@ -537,7 +552,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
             <div class="form-group-inline">
               <label>GasolinaConCombustibleNoFosil</label>
               <div class="input-with-help input-with-tag" data-required="true">
-                <input type="text" placeholder="GasolinaConCombustibleNoFosil" onclick="event.stopPropagation()">
+                <input id="txtGasolinaConCombustibleNoFosil" type="text" placeholder="GasolinaConCombustibleNoFosil" onclick="event.stopPropagation()">
                 <span class="input-tag"></span>
                 <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                 <div class="tooltip-text">Condicional en caso de que haya seleccionado el producto PR07 para expresar si el producto contiene combustible no fósil.</div>
@@ -547,7 +562,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
             <div class="form-group-inline">
               <label>ComposDeCombustibleNoFosilEnGasolina</label>
               <div class="input-with-help input-with-tag" data-required="false">
-                <input type="text" placeholder="ComposDeCombustibleNoFosilEnGasolina" onclick="event.stopPropagation()">
+                <input id="txtComposDeCombustibleNoFosilEnGasolina" type="text" placeholder="ComposDeCombustibleNoFosilEnGasolina" onclick="event.stopPropagation()">
                 <span class="input-tag"></span>
                 <span class="help-icon" onclick="mostrarTooltip(this)">?</span>
                 <div class="tooltip-text">Condicional en caso de que haya declarado “Sí” en el elemento “GasolinaConCombustibleNoFosil”, para expresar el porcentaje de combustible no fósil contenido en el producto. Deberá tener un valor mínimo de 1 a 99.</div>
@@ -1418,6 +1433,10 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
   </ul>
 
 
+  <center>
+    <input style=" cursor: pointer; background-color: #5c5c5c; color: #fff; padding: 10px; width: 300px;" type="button" value="Agregar datos del producto">
+  </center>
+
 
 
    <!-- Tabla de Producto -->
@@ -1431,7 +1450,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
         <th>Combustible No Fósil (%)</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="tabla-productos-body">
       <tr>
         <td>PR07</td>
         <td>SP17</td>
@@ -1481,6 +1500,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <th>Tipo de Carácter</th>
                     <th>Modalidad Permiso</th>
                     <th>Número de Permiso</th>
+                    <th>Num ContratoO Asignacion</th>
                     <th>Clave Instalación</th>
                     <th>Descripción Instalación</th>
                     <th>No. Pozos</th>
@@ -1491,7 +1511,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <th>Fecha y Hora Corte</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabla-productos-body">
                   <tr>
                     <td>1.0</td>
                     <td>VME881019MC8</td>
@@ -1500,6 +1520,7 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
                     <td>Permisionario</td>
                     <td>PER11</td>
                     <td>PL/19394/ALM/2016</td>
+                    <td>otro</td>
                     <td>ALM-0001</td>
                     <td>VOPAK MEXICO TERMINAL VERACRUZ</td>
                     <td>0</td>
@@ -1533,6 +1554,8 @@ input[type="checkbox"]:checked + .tree_label .toggle-icon::before {
     </div>
   </div>
 </div>
+
+<script src="arbol.js"></script>
 
 <!-- Código para evitar que los inputs colapsen el árbol -->
 <script>
